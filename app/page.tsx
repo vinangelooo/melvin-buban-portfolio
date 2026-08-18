@@ -1,9 +1,13 @@
-/* Pre-optimized portfolio evidence is served at authored crops. */
+/* Portfolio evidence is served at authored crops. */
 /* eslint-disable @next/next/no-img-element */
-import { Arrow, SectionLabel, SiteFooter, SiteHeader } from "./components";
-import { caseStudies, experience, toolGroups } from "./site-data";
 import { headers } from "next/headers";
 import Link from "next/link";
+import { Arrow, FolderIcon, SectionLabel, SiteFooter, SiteHeader } from "./components";
+import { HeroVideo } from "./hero-video";
+import { caseStudies, experience, toolGroups } from "./site-data";
+
+const SAMPLE_WORKS =
+  "https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link";
 
 export default async function Home() {
   const incoming = await headers();
@@ -36,72 +40,76 @@ export default async function Home() {
 
   return (
     <>
+      <a className="skip-link" href="#main">Skip to main content</a>
       <SiteHeader />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <main>
+
+      <main id="main">
         <section className="hero" id="top">
+          <div className="hero-fallback" aria-hidden="true" />
+          <HeroVideo />
+          <div className="hero-scrim" aria-hidden="true" />
+
           <div className="hero-copy">
-            <p className="eyebrow">Executive Operations · Research · Project Coordination</p>
-            <h1>Clarity for the work behind the work.</h1>
+            <p className="eyebrow hero-eyebrow">Executive operations · Research · Coordination</p>
+            <h1 aria-label="Clarity for the work behind the work.">
+              Clarity for the work <em>behind</em> the work.
+            </h1>
             <p className="hero-lede">
-              I help leaders organize complex work, coordinate stakeholders, and turn
-              research, decisions, and follow-through into clear action.
+              I help leaders organize complex work, align stakeholders, and turn research,
+              decisions, and follow-through into clear action.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">
+              <a className="button button-light" href="#work">
                 View selected work <Arrow />
               </a>
-              <a
-                className="button button-secondary"
-                href="/melvin-angelo-buban-cv.pdf"
-                target="_blank"
-              >
+              <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf" target="_blank">
                 Download CV <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
 
-          <figure className="hero-proof">
-            <div className="hero-image-frame">
-              <img
-                src="/work/greenbix-journey.webp"
-                alt="Greenbix innovation and impact overview combining event photography, sustainable-building imagery, and cooling-technology milestones."
-              />
-            </div>
-            <figcaption>
-              <span>Selected evidence</span>
-              Research-to-content systems for climate technology
-            </figcaption>
-          </figure>
+          <a
+            className="sample-orb liquid-glass"
+            href={SAMPLE_WORKS}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Melvin's sample works in Google Drive"
+          >
+            <span className="sample-orb-icon"><FolderIcon /></span>
+            <span className="sample-orb-copy">
+              <small>Open the collection</small>
+              <strong>Sample works</strong>
+            </span>
+            <Arrow />
+          </a>
+
+          <div className="hero-meta" aria-label="Portfolio details">
+            <span>Based in Laguna, Philippines</span>
+            <span className="availability"><i /> Available for select opportunities</span>
+            <a href="#positioning">Scroll to explore <span aria-hidden="true">↓</span></a>
+          </div>
         </section>
 
-        <section className="proof-strip" aria-label="Areas of experience">
-          <p>Executive operations</p>
-          <p>International stakeholder coordination</p>
-          <p>Research &amp; decision support</p>
-          <p>Stakeholder-ready communications</p>
-        </section>
-
-        <section className="positioning-section">
+        <section className="statement-section" id="positioning">
           <SectionLabel number="01">The positioning</SectionLabel>
-          <div className="positioning-copy">
-            <p className="statement">
-              The person behind the leader should do more than keep a calendar.
+          <div className="statement-copy">
+            <p>
+              Pioneering <em>ideas</em> for leaders who need the moving parts to become
+              <em> momentum.</em>
             </p>
-            <div className="positioning-columns">
+            <div className="statement-notes">
               <p>
                 I work at the intersection of executive support and execution—bringing
-                structure to priorities, keeping stakeholders aligned, and making sure
-                important work does not disappear between a conversation and the next
-                deadline.
+                structure to priorities and making sure important work does not disappear
+                between a conversation and the next deadline.
               </p>
               <p>
                 My background spans climate technology, professional services, small-business
-                operations, customer support, and engineering cost work. The common thread is
-                dependable follow-through in environments with many moving parts.
+                operations, customer support, and engineering cost work.
               </p>
             </div>
           </div>
@@ -116,105 +124,118 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="work-list">
+          <div className="work-grid">
             {caseStudies.map((item, index) => (
-              <article className="work-row" key={item.slug}>
-                <Link className="work-image-link" href={`/work/${item.slug}/`}>
+              <article className="work-card liquid-glass" key={item.slug}>
+                <Link className="work-visual" href={`/work/${item.slug}/`}>
                   <img
                     src={item.images[0].src}
                     alt={item.images[0].alt}
                     loading={index === 0 ? "eager" : "lazy"}
                   />
+                  <span className="work-index">{item.number}</span>
                 </Link>
-                <div className="work-copy">
+                <div className="work-card-copy">
                   <p className="case-kicker">{item.category}</p>
-                  <h3>
-                    <Link href={`/work/${item.slug}/`}>{item.title}</Link>
-                  </h3>
+                  <h3><Link href={`/work/${item.slug}/`}>{item.title}</Link></h3>
                   <p>{item.deck}</p>
                   <ul className="tag-list" aria-label="Contributions">
                     {item.tags.map((tag) => <li key={tag}>{tag}</li>)}
                   </ul>
                   <Link className="text-link" href={`/work/${item.slug}/`}>
-                    Read case study <Arrow />
+                    Explore case study <Arrow />
                   </Link>
                 </div>
-                <span className="work-number" aria-hidden="true">{item.number}</span>
               </article>
             ))}
+          </div>
+
+          <a
+            className="drive-banner liquid-glass"
+            href={SAMPLE_WORKS}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="drive-banner-icon"><FolderIcon /></span>
+            <span>
+              <small>More decks, visuals, and project samples</small>
+              <strong>Browse the complete sample-work folder</strong>
+            </span>
+            <Arrow />
+          </a>
+        </section>
+
+        <section className="approach-section">
+          <div className="approach-visual">
+            <img
+              src="/work/greenbix-data-centers.webp"
+              alt="Data center infrastructure visual developed for Greenbix climate-technology communications."
+              loading="lazy"
+            />
+            <div className="approach-card liquid-glass">
+              <p className="eyebrow">My approach</p>
+              <p>
+                Every project starts by making the real outcome visible. From there, I map
+                dependencies, create a useful rhythm, and keep the work moving.
+              </p>
+            </div>
           </div>
         </section>
 
         <section className="capabilities-section" id="capabilities">
           <div className="section-heading">
-            <SectionLabel number="03">Capabilities</SectionLabel>
+            <SectionLabel number="03">What I do</SectionLabel>
             <div>
               <p className="eyebrow">A focused range</p>
-              <h2>Support that connects thinking to action.</h2>
+              <h2>Thinking <em>×</em> action.</h2>
             </div>
           </div>
+
           <div className="capability-grid">
-            <article>
+            <article className="liquid-glass">
               <span>01</span>
-              <h3>Executive operations &amp; coordination</h3>
-              <p>
-                Calendar and meeting support, action tracking, records, travel, finance
-                administration, HR documentation, project workflows, and dependable follow-up.
-              </p>
+              <div>
+                <p className="case-kicker">Operations</p>
+                <h3>Executive operations &amp; coordination</h3>
+                <p>Action tracking, records, travel, project workflows, administration, and dependable follow-up.</p>
+              </div>
             </article>
-            <article>
+            <article className="liquid-glass">
               <span>02</span>
-              <h3>Research &amp; decision support</h3>
-              <p>
-                Opportunity research, market scanning, partner and vendor shortlisting,
-                application support, summaries, presentations, and briefing materials.
-              </p>
+              <div>
+                <p className="case-kicker">Insight</p>
+                <h3>Research &amp; decision support</h3>
+                <p>Market scans, opportunity research, shortlists, applications, summaries, and briefing materials.</p>
+              </div>
             </article>
-            <article>
+            <article className="liquid-glass">
               <span>03</span>
-              <h3>Stakeholder-ready communications</h3>
-              <p>
-                Pitch decks, one-pagers, professional email, LinkedIn content, web updates,
-                event collateral, reports, and materials people can act on.
-              </p>
+              <div>
+                <p className="case-kicker">Communication</p>
+                <h3>Stakeholder-ready communications</h3>
+                <p>Pitch decks, one-pagers, reports, professional email, event collateral, and web content.</p>
+              </div>
             </article>
           </div>
         </section>
 
         <section className="principles-section">
-          <div className="principles-intro">
-            <p className="eyebrow eyebrow-light">How I work</p>
+          <div className="principles-heading">
+            <p className="eyebrow">How I work</p>
             <h2>Calm, visible, and built for follow-through.</h2>
           </div>
           <ol className="principles-list">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>Clarify what matters.</h3>
-                <p>Separate the urgent from the important and make the real outcome visible.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>Anticipate the next dependency.</h3>
-                <p>Surface missing inputs, decisions, and follow-ups before they create delay.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>Communicate early.</h3>
-                <p>Keep owners and stakeholders informed with concise, useful updates.</p>
-              </div>
-            </li>
-            <li>
-              <span>04</span>
-              <div>
-                <h3>Leave the work usable.</h3>
-                <p>Finish with organized files, clear notes, and documentation others can use.</p>
-              </div>
-            </li>
+            {[
+              ["Clarify what matters", "Separate the urgent from the important and make the real outcome visible."],
+              ["Anticipate dependencies", "Surface missing inputs and decisions before they create delay."],
+              ["Communicate early", "Keep owners and stakeholders informed with concise, useful updates."],
+              ["Leave the work usable", "Finish with organized files, clear notes, and documentation others can use."],
+            ].map(([title, body], index) => (
+              <li key={title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div><h3>{title}</h3><p>{body}</p></div>
+              </li>
+            ))}
           </ol>
         </section>
 
@@ -238,7 +259,7 @@ export default async function Home() {
               </article>
             ))}
           </div>
-          <a className="button button-secondary" href="/melvin-angelo-buban-cv.pdf" target="_blank">
+          <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf" target="_blank">
             View the complete CV <Arrow />
           </a>
         </section>
@@ -256,13 +277,9 @@ export default async function Home() {
         </section>
 
         <section className="about-section" id="about">
-          <div className="about-accent" aria-hidden="true">
-            <span>M</span>
-            <span>A</span>
-            <span>B</span>
-          </div>
+          <div className="about-monogram" aria-hidden="true">MAB</div>
           <div className="about-copy">
-            <p className="eyebrow eyebrow-light">About Melvin</p>
+            <p className="eyebrow">About Melvin</p>
             <h2>A practical operator with an engineer’s instinct for structure.</h2>
             <p className="about-lede">
               I am a Civil Engineering graduate based in Laguna, Philippines, with experience
@@ -270,44 +287,33 @@ export default async function Home() {
             </p>
             <p>
               My career has moved through cost planning, customer operations, executive
-              assistance, financial and administrative support, small-business ownership,
-              project coordination, and climate-tech commercialization. That range helps me
-              understand both the detail inside a task and the larger outcome it supports.
-            </p>
-            <p>
-              I do my best work where judgment, discretion, adaptability, and clear
-              communication matter—especially when a leader needs someone who can understand
-              the context, organize the moving parts, and carry work through.
+              assistance, small-business ownership, project coordination, and climate-tech
+              commercialization. That range helps me see both the detail inside a task and the
+              larger outcome it supports.
             </p>
           </div>
         </section>
 
         <section className="contact-section" id="contact">
-          <div className="contact-heading">
+          <div>
             <p className="eyebrow">Start a conversation</p>
-            <h2>What needs to move?</h2>
+            <h2 aria-label="What needs to move?">What needs to <em>move?</em></h2>
+          </div>
+          <div className="contact-copy">
             <p>
               Share the role, project, or operational challenge. I’ll respond with a clear
               view of whether I can help.
             </p>
-          </div>
-          <div className="contact-paths">
-            <a href="mailto:melvinbuban14@gmail.com?subject=Role%20opportunity%20for%20Melvin">
-              <span>Role opportunity</span>
-              <strong>Looking for a dependable cross-functional partner?</strong>
-              <Arrow />
+            <a className="button button-light" href="mailto:melvinbuban14@gmail.com?subject=Let%27s%20work%20together">
+              Email Melvin <Arrow />
             </a>
-            <a href="mailto:melvinbuban14@gmail.com?subject=Project%20support%20inquiry">
-              <span>Project support</span>
-              <strong>Need focused help to research, coordinate, or communicate?</strong>
-              <Arrow />
+            <a className="direct-email" href="mailto:melvinbuban14@gmail.com">
+              melvinbuban14@gmail.com
             </a>
           </div>
-          <a className="direct-email" href="mailto:melvinbuban14@gmail.com">
-            melvinbuban14@gmail.com
-          </a>
         </section>
       </main>
+
       <SiteFooter />
     </>
   );

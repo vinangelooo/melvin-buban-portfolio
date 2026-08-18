@@ -2,11 +2,15 @@ import Link from "next/link";
 
 export const Arrow = () => <span aria-hidden="true">↗</span>;
 
+export function FolderIcon() {
+  return <span className="folder-icon" aria-hidden="true" />;
+}
+
 export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="wordmark" href="/#top" aria-label="Melvin Angelo Buban, home">
-        MAB<span>.</span>
+        Melvin<span>.</span>
       </Link>
 
       <nav className="desktop-nav" aria-label="Primary navigation">
@@ -14,6 +18,14 @@ export function SiteHeader() {
         <Link href="/#capabilities">Capabilities</Link>
         <Link href="/#experience">Experience</Link>
         <Link href="/#about">About</Link>
+        <a
+          className="sample-work-link"
+          href="https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FolderIcon /> Sample works
+        </a>
         <Link className="nav-cta" href="/#contact">Contact Melvin</Link>
       </nav>
 
@@ -24,6 +36,13 @@ export function SiteHeader() {
           <Link href="/#capabilities">Capabilities</Link>
           <Link href="/#experience">Experience</Link>
           <Link href="/#about">About</Link>
+          <a
+            href="https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Sample works
+          </a>
           <Link href="/#contact">Contact Melvin</Link>
         </nav>
       </details>
@@ -45,13 +64,20 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div>
         <Link className="wordmark footer-wordmark" href="/#top" aria-label="Back to home">
-          MAB<span>.</span>
+          Melvin<span>.</span>
         </Link>
         <p>Executive operations, research, and project coordination.</p>
       </div>
       <div className="footer-links">
         <a href="mailto:melvinbuban14@gmail.com">melvinbuban14@gmail.com</a>
         <a href="/melvin-angelo-buban-cv.pdf" target="_blank">Download CV</a>
+        <a
+          href="https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Sample works
+        </a>
         <Link href="/#work">Selected work</Link>
       </div>
       <p className="copyright">© {new Date().getFullYear()} Melvin Angelo Buban</p>

@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Newsreader } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
 const sans = IBM_Plex_Sans({
   variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const display = Newsreader({
-  variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
@@ -23,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = "Melvin Angelo Buban | Executive Operations & Project Coordination";
   const description =
     "Executive operations, research, project coordination, and stakeholder-ready communications for leaders and internationally distributed teams.";
-  const socialImage = new URL("/og.png", origin).toString();
+  const socialImage = new URL("/og-v2.png", origin).toString();
 
   return {
     metadataBase: new URL(origin),
@@ -36,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       url: "/",
       siteName: "Melvin Angelo Buban",
-      images: [{ url: socialImage, width: 1200, height: 630, alt: "Melvin Angelo Buban — Clarity for the work behind the work." }],
+      images: [{ url: socialImage, width: 1731, height: 909, alt: "Melvin Angelo Buban — Clarity for the work behind the work." }],
     },
     twitter: {
       card: "summary_large_image",
@@ -50,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${display.variable}`}>{children}</body>
+      <body className={sans.variable}>{children}</body>
     </html>
   );
 }
