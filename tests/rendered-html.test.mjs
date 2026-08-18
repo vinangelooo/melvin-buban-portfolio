@@ -29,6 +29,13 @@ test("server-renders the complete portfolio home page", async () => {
   assert.match(html, /Three ways the work creates clarity\./);
   assert.match(html, /What needs to move\?/);
   assert.match(html, /melvin-angelo-buban-cv\.pdf/);
+  assert.match(html, /hero-executive-operations\.png/);
+  assert.doesNotMatch(html, /<video\b|d8j0ntlcm91z4\.cloudfront\.net/);
+  for (const section of ["work", "capabilities", "experience", "about", "contact"]) {
+    assert.match(html, new RegExp(`href="/#${section}"`));
+    assert.match(html, new RegExp(`id="${section}"`));
+  }
+  assert.doesNotMatch(html, /greenbix-data-centers\.webp/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 

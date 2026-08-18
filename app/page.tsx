@@ -3,7 +3,6 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Arrow, FolderIcon, SectionLabel, SiteFooter, SiteHeader } from "./components";
-import { HeroVideo } from "./hero-video";
 import { caseStudies, experience, toolGroups } from "./site-data";
 
 const SAMPLE_WORKS =
@@ -49,8 +48,10 @@ export default async function Home() {
 
       <main id="main">
         <section className="hero" id="top">
-          <div className="hero-fallback" aria-hidden="true" />
-          <HeroVideo />
+          <div className="hero-visual" aria-hidden="true">
+            <img src="/hero-executive-operations.png" alt="" />
+            <span className="hero-light-sweep" />
+          </div>
           <div className="hero-scrim" aria-hidden="true" />
 
           <div className="hero-copy">
@@ -163,23 +164,6 @@ export default async function Home() {
             </span>
             <Arrow />
           </a>
-        </section>
-
-        <section className="approach-section">
-          <div className="approach-visual">
-            <img
-              src="/work/greenbix-data-centers.webp"
-              alt="Data center infrastructure visual developed for Greenbix climate-technology communications."
-              loading="lazy"
-            />
-            <div className="approach-card liquid-glass">
-              <p className="eyebrow">My approach</p>
-              <p>
-                Every project starts by making the real outcome visible. From there, I map
-                dependencies, create a useful rhythm, and keep the work moving.
-              </p>
-            </div>
-          </div>
         </section>
 
         <section className="capabilities-section" id="capabilities">
