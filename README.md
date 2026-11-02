@@ -36,3 +36,9 @@ npm run test:pages
 
 The website uses Vinext and exports a static build for automatic deployment to
 GitHub Pages from the `main` branch.
+
+All CV buttons use `app/resume-link.tsx`. The current download is
+`public/melvin-angelo-buban-cv-2026-11-add8cb7b.pdf`; the original filename is
+retained for existing bookmarks. When replacing the CV, use a new filename,
+update the shared link, align the site content, and update the export regression
+check with the supplied PDF's SHA-256 hash.

@@ -3,7 +3,8 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Arrow, FolderIcon, SectionLabel, SiteFooter, SiteHeader } from "./components";
-import { caseStudies, experience, toolGroups } from "./site-data";
+import { caseStudies, experience, toolGroups, personalProjects } from "./site-data";
+import { ResumeLink } from "./resume-link";
 
 const SAMPLE_WORKS =
   "https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link";
@@ -21,7 +22,7 @@ export default async function Home() {
       "@type": "Person",
       name: "Melvin Angelo Buban",
       email: "mailto:melvinbuban14@gmail.com",
-      jobTitle: "Executive Operations, Research & Project Coordination Partner",
+      jobTitle: "Executive and Personal Assistant | Administrative Virtual Assistant | Admin Lead | Project Manager",
       url: origin,
       knowsAbout: [
         "Executive operations",
@@ -55,21 +56,21 @@ export default async function Home() {
           <div className="hero-scrim" aria-hidden="true" />
 
           <div className="hero-copy">
-            <p className="eyebrow hero-eyebrow">Executive operations · Research · Coordination</p>
+            <p className="eyebrow hero-eyebrow">Executive &amp; personal assistance · Project management</p>
             <h1 aria-label="Clarity for the work behind the work.">
               Clarity for the work <em>behind</em> the work.
             </h1>
             <p className="hero-lede">
-              I help leaders organize complex work, align stakeholders, and turn research,
-              decisions, and follow-through into clear action.
+              I support CEOs and international teams with executive priorities, complex calendars,
+              confidential matters, project coordination, and day-to-day business operations.
             </p>
             <div className="hero-actions">
               <a className="button button-light" href="#work">
                 View selected work <Arrow />
               </a>
-              <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">
+              <ResumeLink className="button liquid-glass">
                 Download CV <span aria-hidden="true">↓</span>
-              </a>
+              </ResumeLink>
             </div>
           </div>
 
@@ -151,6 +152,20 @@ export default async function Home() {
             ))}
           </div>
 
+          <section className="resume-projects" aria-labelledby="personal-projects-title">
+            <p className="eyebrow">Personal projects</p>
+            <h2 id="personal-projects-title">Tools I built for practical work.</h2>
+            <div className="resume-project-grid">
+              {personalProjects.map((project) => (
+                <article key={project.title}>
+                  <p className="case-kicker">{project.tools}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <a
             className="drive-banner liquid-glass"
             href={SAMPLE_WORKS}
@@ -180,24 +195,24 @@ export default async function Home() {
               <span>01</span>
               <div>
                 <p className="case-kicker">Operations</p>
-                <h3>Executive operations &amp; coordination</h3>
-                <p>Action tracking, records, travel, project workflows, administration, and dependable follow-up.</p>
+                <h3>Executive &amp; personal support</h3>
+                <p>Priority and calendar management, confidential correspondence, domestic and international travel, executive briefings, meetings, events, and action tracking.</p>
               </div>
             </article>
             <article className="liquid-glass">
               <span>02</span>
               <div>
                 <p className="case-kicker">Insight</p>
-                <h3>Research &amp; decision support</h3>
-                <p>Market scans, opportunity research, shortlists, applications, summaries, and briefing materials.</p>
+                <h3>Research &amp; project coordination</h3>
+                <p>Market research, lead generation, vendor sourcing, procurement coordination, grant and accelerator applications, stakeholder follow-up, and workflow automation.</p>
               </div>
             </article>
             <article className="liquid-glass">
               <span>03</span>
               <div>
                 <p className="case-kicker">Communication</p>
-                <h3>Stakeholder-ready communications</h3>
-                <p>Pitch decks, one-pagers, reports, professional email, event collateral, and web content.</p>
+                <h3>Team &amp; business operations</h3>
+                <p>Team supervision, recruitment, onboarding and offboarding, financial administration, budget and expense tracking, invoice review, SOPs, handbooks, and website content.</p>
               </div>
             </article>
           </div>
@@ -243,9 +258,9 @@ export default async function Home() {
               </article>
             ))}
           </div>
-          <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">
+          <ResumeLink className="button liquid-glass">
             View the complete CV <Arrow />
-          </a>
+          </ResumeLink>
         </section>
 
         <section className="tools-section">
@@ -266,14 +281,22 @@ export default async function Home() {
             <p className="eyebrow">About Melvin</p>
             <h2>A practical operator with an engineer’s instinct for structure.</h2>
             <p className="about-lede">
-              I am a Civil Engineering graduate based in Laguna, Philippines, with experience
-              supporting leaders and teams connected to Singapore and the United States.
+              I am an executive and personal assistant based in Laguna, Philippines, with experience
+              supporting CEOs and international teams in Singapore and the United States.
             </p>
             <p>
-              My career has moved through cost planning, customer operations, executive
-              assistance, small-business ownership, project coordination, and climate-tech
-              commercialization. That range helps me see both the detail inside a task and the
-              larger outcome it supports.
+              My background combines business ownership and civil engineering with hands-on support
+              across finance, hiring, marketing, and commercial initiatives. At CounterAtlas LLC
+              and Daedalians, I supervised up to eight employees and managed financial transactions
+              totaling more than $200,000.
+            </p>
+            <p>
+              I hold a Bachelor of Science in Civil Engineering from Laguna State Polytechnic
+              University, Santa Cruz Main Campus.
+            </p>
+            <p>
+              My work style centers on discretion, executive judgment, proactive ownership,
+              clear communication, accountability, and consistent follow-through.
             </p>
           </div>
         </section>

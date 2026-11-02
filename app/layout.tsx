@@ -21,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incoming.get("x-forwarded-host") ?? incoming.get("host") ?? "localhost:3000";
   const protocol = incoming.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Melvin Angelo Buban | Executive Operations & Project Coordination";
+  const title = "Melvin Angelo Buban | Executive & Personal Assistant";
   const description =
-    "Executive operations, research, project coordination, and stakeholder-ready communications for leaders and internationally distributed teams.";
+    "Executive and personal assistant, administrative virtual assistant, admin lead, and project manager supporting CEOs and international teams with priorities, operations, research, and follow-through.";
   const socialImage = new URL("/og-v2.png", origin).toString();
 
   return {

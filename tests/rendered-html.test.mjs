@@ -28,7 +28,7 @@ test("server-renders the complete portfolio home page", async () => {
   assert.match(html, /Clarity for the work behind the work\./);
   assert.match(html, /Three ways the work creates clarity\./);
   assert.match(html, /What needs to move\?/);
-  assert.match(html, /melvin-angelo-buban-cv\.pdf/);
+  assert.match(html, /melvin-angelo-buban-cv-2026-11-add8cb7b\.pdf/);
   assert.match(html, /hero-executive-operations\.png/);
   assert.doesNotMatch(html, /<video\b|d8j0ntlcm91z4\.cloudfront\.net/);
   for (const section of ["work", "capabilities", "experience", "about", "contact"]) {

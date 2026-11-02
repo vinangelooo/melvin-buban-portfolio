@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
       "Supporting an early-stage technical venture with the coordination, research, and communication structure needed to stay clear across partners, programs, and markets.",
     organization: "Greenbix Pte. Ltd.",
     role: "Admin Lead · Project Manager · Executive Assistant",
-    period: "2025–2026",
+    period: "August 2025 – August 2026",
     tags: ["Research", "Coordination", "Content", "Web"],
     challenge:
       "Greenbix was developing and commercializing a new cooling approach while participating in accelerator, grant, testbed, partnership, and market-development activity. That created a constant flow of technical inputs, stakeholder follow-ups, documents, and public communications that needed to remain coherent.",
@@ -112,8 +112,8 @@ export const caseStudies: CaseStudy[] = [
     deck:
       "Condensing service capabilities, performance history, and event logistics into polished materials designed for real audiences and real decisions.",
     organization: "CounterAtlas LLC · Daedalians",
-    role: "Executive support · Event coordination · Multimedia collateral",
-    period: "2022–2024",
+    role: "Executive Assistant to the CEO · Personal Assistant · Chief of Staff",
+    period: "December 2022 – October 2024",
     tags: ["Executive support", "Events", "Collateral", "Information design"],
     challenge:
       "Executive and client communications often contain more detail than an audience can absorb quickly. Service flyers needed to communicate credibility without losing specificity, while event materials had to make schedules and logistics immediately useful.",
@@ -148,70 +148,96 @@ export const caseStudies: CaseStudy[] = [
 
 export const experience = [
   {
-    period: "2025–2026",
-    role: "Admin Lead · Project Manager · Executive Assistant",
-    organization: "Greenbix Pte. Ltd.",
-    location: "Singapore",
-    summary:
-      "Executive operations, project coordination, partnerships, applications, research, content, web administration, finance, HR documentation, and technical-workflow support.",
+    "period": "August 2025 – August 2026",
+    "role": "Admin Lead · Project Manager · Executive Assistant",
+    "organization": "Greenbix Pte. Ltd.",
+    "location": "Singapore",
+    "summary": "Supported the CEO’s calendar, meeting preparation, confidential administration, and project follow-through. Coordinated partnerships, grant and accelerator applications, supplier research, simulation and testbed workflows, finance records, HR documentation, and corporate websites."
   },
   {
-    period: "2024–2025",
-    role: "Co-Founder · Co-Owner",
-    organization: "Sip&Chill",
-    location: "Laguna, Philippines",
-    summary:
-      "Day-to-day operations, people management, inventory, pricing, supplier coordination, bookkeeping, marketing, and customer experience.",
+    "period": "June 2024 – June 2025",
+    "role": "Co-Founder · Co-Owner",
+    "organization": "Sip&Chill",
+    "location": "Santa Cruz, Laguna, Philippines",
+    "summary": "Co-owned and operated a coffee shop, managing daily service, inventory, cash handling, supplier coordination, pricing, bookkeeping, and payroll. Recruited, trained, scheduled, and supervised staff while supporting marketing and resolving operational issues."
   },
   {
-    period: "2022–2024",
-    role: "Executive Assistant to the CEO · Operations & Finance Support",
-    organization: "CounterAtlas LLC · Daedalians",
-    location: "Washington, DC",
-    summary:
-      "Executive support, travel and events, team coordination, research, financial administration, policies, presentations, and multimedia collateral.",
+    "period": "December 2022 – October 2024",
+    "role": "Executive Assistant to the CEO · Personal Assistant · Chief of Staff",
+    "organization": "CounterAtlas LLC & Daedalians",
+    "location": "Washington, D.C., USA",
+    "summary": "Managed executive priorities, confidential matters, calendars, domestic and international travel, meetings, and events. Supervised up to eight employees and managed financial transactions totaling more than $200,000. Supported hiring, onboarding, invoice review, budgets, SOPs, and a team handbook."
   },
   {
-    period: "2022",
-    role: "Executive Assistant to the CEO",
-    organization: "FocalPoint Business Coaching",
-    location: "Illinois, USA",
-    summary:
-      "Calendar and travel support, prospect research, relationship-building, content, email campaigns, networking, and lead-generation administration.",
+    "period": "July 2022 – December 2022",
+    "role": "Executive Assistant to the CEO",
+    "organization": "FocalPoint Business Coaching",
+    "location": "Lincolnshire, Illinois, USA",
+    "summary": "Managed the CEO’s calendar, appointments, travel, communications, and confidential information. Built prospect lists, handled calls and email outreach, maintained Mailchimp campaigns, and supported networking, LinkedIn outreach, blog content, and social media."
   },
   {
-    period: "2022",
-    role: "Customer Support · E-Commerce · Lead Generation",
-    organization: "Chirpish",
-    location: "Miami, USA",
-    summary:
-      "Escalations, invoicing, order support, research, bookkeeping, outreach, and cross-team customer problem solving.",
+    "period": "February 2022 – June 2022",
+    "role": "Customer Service Representative · Escalation Agent · E-Commerce Virtual Assistant · Lead Generation Specialist",
+    "organization": "Chirpish",
+    "location": "Miami, Florida, USA",
+    "summary": "Handled customer inquiries and escalations, Shopify orders, dropshipping coordination, shipment tracking, returns, and refunds. Prepared invoices and bookkeeping records, developed support guidance, and researched markets and prospective clients."
   },
   {
-    period: "2021",
-    role: "Junior Design and Cost Engineer",
-    organization: "Engineering Equipment Inc., Corp.",
-    location: "Quezon City, Philippines",
-    summary:
-      "Cost analysis, BOQs, spreadsheets, technical drawings, supplier comparisons, procurement schedules, and project coordination.",
+    "period": "March 2021 – December 2021",
+    "role": "Junior Design and Cost Engineer",
+    "organization": "Engineering Equipment Inc., Corp.",
+    "location": "Quezon City, Philippines",
+    "summary": "Prepared Excel cost estimates, budget trackers, quantity take-offs, bills of quantities, and project reports. Interpreted drawings, compared supplier quotations, reviewed specifications, and coordinated procurement schedules, deliveries, and project meetings."
   },
+  {
+    "period": "August 2015 – August 2020",
+    "role": "Private Math Tutor",
+    "organization": "Freelance",
+    "location": "Laguna, Philippines",
+    "summary": "Provided individual algebra and geometry tutoring, homework support, and test preparation. Assessed learning gaps, adapted lessons, tracked progress, and communicated with the parent while completing a full-time college course load."
+  }
 ];
 
 export const toolGroups = [
   {
-    title: "Operations & projects",
-    tools: "Asana, Monday.com, Basecamp, Taskade, Notion, ClickUp",
+    "title": "Productivity & collaboration",
+    "tools": "Google Workspace, Microsoft Office (Advanced Excel), Slack, Zoom, Loom, Calendly, OneDrive, WhatsApp, 1Password"
   },
   {
-    title: "Documents & collaboration",
-    tools: "Microsoft Office, Advanced Excel, Google Workspace, OneDrive, Slack",
+    "title": "Project & task management",
+    "tools": "Asana, ClickUp, Basecamp, Monday.com, Notion, Trello, Taskade"
   },
   {
-    title: "CRM, outreach & support",
-    tools: "GoHighLevel, Freshdesk, LinkedIn, Kennected, Apollo.io, Mailchimp",
+    "title": "CRM & lead generation",
+    "tools": "Salesforce, LinkedIn Sales Navigator, Apollo.io, Kennected, Google Maps research"
   },
   {
-    title: "Creative, web & finance",
-    tools: "Canva, Wix, Google Analytics, n8n, FreshBooks, Xero, 1Password",
+    "title": "Finance & e-commerce",
+    "tools": "FreshBooks, Xero, Shopify, eBay, CJdropshipping, PayPal, Wise"
   },
+  {
+    "title": "Marketing & websites",
+    "tools": "Canva, Wix, Google Sites, Mailchimp, Google Analytics"
+  },
+  {
+    "title": "AI & automation",
+    "tools": "ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Microsoft Copilot, n8n, Apify"
+  },
+  {
+    "title": "Additional exposure",
+    "tools": "GoHighLevel, HubSpot, Freshdesk"
+  }
+];
+
+export const personalProjects = [
+  {
+    "title": "Business Lead Research Automation",
+    "tools": "n8n · Apify",
+    "summary": "Built a repeatable prospecting workflow that identifies Google Maps businesses with 20 to 300 reviews, collects business listing data, and researches CEOs, owners, and available contact information to support targeted outreach."
+  },
+  {
+    "title": "BizRadar Personal Job Search Application",
+    "tools": "Codex · Visual Studio Code",
+    "summary": "Built a personal job-search workspace combining opportunity discovery, role comparison, profile-based ranking, and lead tracking. Added search filters, original posting links, a Watchlist, CSV export, and table and pipeline views."
+  }
 ];

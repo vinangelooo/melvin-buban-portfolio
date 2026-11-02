@@ -79,3 +79,21 @@ test("publishes discovery files with the live URL", async () => {
   assert.match(robots, new RegExp(`${LIVE_URL}/sitemap\\.xml`));
   assert.match(sitemap, new RegExp(`${LIVE_URL}/work/greenbix`));
 });
+
+test("every CV button serves the supplied updated resume", async () => {
+  const filename = "melvin-angelo-buban-cv-2026-11-add8cb7b.pdf";
+  for (const page of PAGE_FILES) {
+    const html = await readFile(path.join(OUTPUT_DIR, page), "utf8");
+    const links = [...html.matchAll(/<a\b[^>]*href="([^"]*cv[^"]*\.pdf[^"]*)"[^>]*>([\s\S]*?)<\/a>/g)];
+    assert.equal(links.length, page === "index.html" ? 3 : 1, page);
+    for (const link of links) assert.equal(link[1], `${BASE_PATH}/${filename}`, `${page}: ${link[2]}`);
+    assert.match(html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] ?? "", new RegExp(filename.replaceAll(".", "\\.")));
+    if (page === "index.html") {
+      assert.match(html.match(/<section[^>]*id="experience"[\s\S]*?<\/section>/)?.[0] ?? "", /View the complete CV/);
+      for (const text of ["Chief of Staff", "Private Math Tutor", "BizRadar", "Additional exposure", "August 2025", "August 2026"]) assert.ok(html.includes(text), text);
+    }
+  }
+  const { createHash } = await import("node:crypto");
+  const pdf = await readFile(path.join(OUTPUT_DIR, filename));
+  assert.equal(createHash("sha256").update(pdf).digest("hex"), "add8cb7bc1e8e0b89201f67dc9dfe655c3588e5a6b65146719bb4aacc4d5dd8a");
+});

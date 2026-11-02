@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResumeLink } from "./resume-link";
 
 export const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -66,11 +67,11 @@ export function SiteFooter() {
         <Link className="wordmark footer-wordmark" href="/#top" aria-label="Back to home">
           Melvin<span>.</span>
         </Link>
-        <p>Executive operations, research, and project coordination.</p>
+        <p>Executive and personal assistance, administration, and project management.</p>
       </div>
       <div className="footer-links">
         <a href="mailto:melvinbuban14@gmail.com">melvinbuban14@gmail.com</a>
-        <Link href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">Download CV</Link>
+        <ResumeLink>Download CV</ResumeLink>
         <a
           href="https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link"
           target="_blank"
