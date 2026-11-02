@@ -70,7 +70,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-links">
         <a href="mailto:melvinbuban14@gmail.com">melvinbuban14@gmail.com</a>
-        <Link href="/melvin-angelo-buban-cv.pdf" target="_blank">Download CV</Link>
+        <Link href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">Download CV</Link>
         <a
           href="https://drive.google.com/drive/folders/11pOsPeklyZgniiFqxYIwAiUBp_yHizKG?usp=drive_link"
           target="_blank"

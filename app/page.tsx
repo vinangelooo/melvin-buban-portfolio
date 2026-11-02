@@ -67,7 +67,7 @@ export default async function Home() {
               <a className="button button-light" href="#work">
                 View selected work <Arrow />
               </a>
-              <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf" target="_blank">
+              <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">
                 Download CV <span aria-hidden="true">↓</span>
               </a>
             </div>
@@ -243,7 +243,7 @@ export default async function Home() {
               </article>
             ))}
           </div>
-          <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf" target="_blank">
+          <a className="button liquid-glass" href="/melvin-angelo-buban-cv.pdf?v=20261102" target="_blank">
             View the complete CV <Arrow />
           </a>
         </section>
